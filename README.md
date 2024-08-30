@@ -1,6 +1,4 @@
 # Cphish
-Grab Cam-Shots from target's Phone Front-Camera or PC Webcam just Sending a link 
-
 ![Cphish](https://github.com/user-attachments/assets/3e2a6cce-a1d0-40d2-ac6a-b54b3a0e5f09)
 <p align="center">
   <img src="https://img.shields.io/badge/Version-1.2-green?style=for-the-badge">
@@ -17,6 +15,7 @@ Grab Cam-Shots from target's Phone Front-Camera or PC Webcam just Sending a link
   <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fhtr-tech%2Fzphisher&title=Visitors&edge_flat=false"/></a>
 </p>
 
+<p align="center"><b>Grab Cam-Shots from target's Phone Front-Camera or PC Webcam just Sending a link </b></p>
 
 ## What is Cphish?
 Cphish is techniques to take cam shots of target's phone front camera or PC webcam. Cphish Hosts a fake website on in built PHP server and uses Cloudflared or ngrok to generate a link which we will forward to the target, which can be used on over internet. website asks for camera permission and if the target allows it, this tool grab camshots of target's device
