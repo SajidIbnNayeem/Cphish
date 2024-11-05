@@ -1,7 +1,7 @@
 # Cphish
 ![Cphish](https://github.com/user-attachments/assets/3e2a6cce-a1d0-40d2-ac6a-b54b3a0e5f09)
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-1.2-green?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Version-1.2.3-green?style=for-the-badge">
   <img src="https://img.shields.io/github/license/SajidIbnNayeem/Cphish?style=for-the-badge">
   <img src="https://img.shields.io/github/stars/SajidIbnNayeem/Cphish?style=for-the-badge">
   <img src="https://img.shields.io/github/issues/SajidIbnNayeem/Cphish?color=red&style=for-the-badge">
