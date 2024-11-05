@@ -30,7 +30,6 @@ Cphish is techniques to take cam shots of target's phone front camera or PC webc
   <li>Festival Wishing</li>
   <li>Live YouTube TV</li>
   <li>Online Meeting</li>
-  <li>Dual Tunneling (Cloudflare && ngrok)</li>
   <li>Get IP, Location, Device type and Browser</li>
 </ul>
 
@@ -43,25 +42,7 @@ Cphish is techniques to take cam shots of target's phone front camera or PC webc
   <li>Garuda Linux</li>
 </ul>
 
-## How Works ?
-First of all This tool host a phishing site on attacker local network. This tool gives two port forwarding option (NGROK or CloudFlare) to take website over the internet. Now come on the main Point, attacker simply open the tool by using terminal and generate a link, when Link is generated attacker send that link to the target. If target open the link, target ip will transfer to the attacker. After Website load, the website ask for Camera access and when target give the permission the website will take cam shots one by one and send it to the Attacker
-
 ### Installation
-```
-apt update && apt upgrade -y
-```
-```
-apt install git -y
-```
-```
-apt install php
-```
-```
-apt install curl -y
-```
-```
-apt install wget -y
-```
 ```
 git clone https://github.com/SajidibnNayeem/Cphish.git
 ```
