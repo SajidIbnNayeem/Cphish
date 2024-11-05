@@ -109,7 +109,7 @@ replacer() {
     sleep 1
     echo -e "${yellow}➤${blue} Link  : ${1}\n"
     sleep 1
-    echo -e "${yellow}✋ Please Wait a minute PHP is Starting..... "
+    echo -e "${yellow}✋ Please Wait a few minute PHP is Starting..... "
     netcheck
     masked=$(curl -s https://is.gd/create.php\?format\=simple\&url\=${1})
     if ! [[ -z $masked ]]; then
